@@ -1,21 +1,32 @@
-diffusers==0.29.2
-gmsh==4.13.1
-matplotlib==3.9.0
-ninja==1.11.1.1
-open3d==0.18.0
+# Core libraries
+numpy==1.26.4
 pandas==2.2.2
-pillow==10.4.0
-plotly==5.22.0
+matplotlib==3.9.0
 scikit-learn==1.5.1
 scipy==1.14.0
-torch_geometric==2.5.3
 tqdm==4.66.4
+pillow==10.4.0
+plotly==5.22.0
+dataclasses==0.8
+
+# Machine Learning & Deep Learning
+torch==2.0.0+cu118
+torchvision==0.15.2+cu118
+torchaudio==2.0.1+cu118
+# torch-geometric will be installed manually with its dependencies
+
+# Visualization & 3D Tools
 trimesh==4.4.4
-vtk==9.0.1
+open3d==0.18.0
+gmsh==4.13.1
+
+# Other tools
+diffusers==0.29.2
+ninja==1.11.1.1
 wandb==0.17.9
-numpy~=1.26.4
-torch~=2.2.2+cu121
-dataclasses~=0.8
-occwl~=2.1.0
-plyfile~=1.1
-chamferdist~=1.0.3
+plyfile==1.1
+
+# === Not recommended or unsupported in Kaggle (commented out) ===
+# vtk==9.0.1               # Fails due to system-level dependencies
+# chamferdist==1.0.3       # Requires compilation, fails in Kaggle
+# occwl==2.1.0             # Depends on OpenCascade, not supported
