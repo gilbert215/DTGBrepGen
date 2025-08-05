@@ -1,0 +1,118 @@
+{
+    "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.10",
+    "python": "3.8.12",
+    "heartbeatAt": "2025-08-05T03:47:23.106160",
+    "startedAt": "2025-08-05T03:47:22.950189",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--name",
+        "abc",
+        "--batch_size",
+        "512",
+        "--option",
+        "edgeVert",
+        "--train_epochs",
+        "500",
+        "--save_epochs",
+        "100"
+    ],
+    "state": "running",
+    "program": "-m topology.train_topo",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/gilbert215/DTGBrepGen.git",
+        "commit": "248f828f6540d3de4db96af1479aa056615224d7"
+    },
+    "email": "urinzwenimanagilbert39@gmail.com",
+    "root": "/home/gib/internship/DTGBrepGen",
+    "host": "STUDENT-17",
+    "username": "gib",
+    "executable": "/home/gib/miniconda3/envs/DTGBrepGen38/bin/python",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2611.2000000000003,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2611.2,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 35.58457565307617
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 2050",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2050",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 7.577354431152344
+    }
+}

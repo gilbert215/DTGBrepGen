@@ -641,32 +641,37 @@ def main():
 
 
 if __name__ == '__main__':
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("--input", type=str, default='/home/jing/Datasets/DeepCAD', help="Data folder path")
-    # parser.add_argument("--option", type=str, choices=['abc', 'deepcad', 'furniture'], default='deepcad',
-    #                     help="Choose between dataset option [abc/deepcad/furniture]")
-    # parser.add_argument("--interval", type=int, help="Data range index, only required for abc/deepcad")
-    # args = parser.parse_args()
-    #
-    # if args.option == 'deepcad':
-    #     OUTPUT = 'GeomDatasets/deepcad_parsed'
-    # elif args.option == 'abc':
-    #     OUTPUT = 'GeomDatasets/abc_parsed'
-    # else:
-    #     OUTPUT = 'GeomDatasets/furniture_parsed'
-    #
-    # step_dirs = load_steps(args.input)
-    # # for i in range(1, 10):
-    # #     process(step_dirs[i])
-    #
-    # process_with_option = partial(process, option=args.option)
-    # process_with_timeout_option = partial(process_with_timeout, process_with_option)
-    #
-    # with ProcessPoolExecutor(max_workers=os.cpu_count()) as executor:
-    #     results = list(executor.map(process_with_timeout_option, step_dirs))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", type=str, default='/home/gib/internship/DTGBrepGen/datasets/abc_0000_step_v00', help="Data folder path")
+    parser.add_argument("--option", type=str, choices=['abc', 'deepcad', 'furniture'], default='abc',
+                        help="Choose between dataset option [abc/deepcad/furniture]")
+    parser.add_argument("--interval", type=int, help="Data range index, only required for abc/deepcad")
+    args = parser.parse_args()
+
+    if args.option == 'deepcad':
+        OUTPUT = 'GeomDatasets/deepcad_parsed'
+    elif args.option == 'abc':
+        OUTPUT = 'GeomDatasets/abc_parsed'
+    else:
+        OUTPUT = 'GeomDatasets/furniture_parsed'
+
+    step_dirs = load_steps(args.input)
+    print(f"Found {len(step_dirs)} STEP files to process")
+    
+    # for i in range(1, 10):
+    #     process(step_dirs[i])
+
+    process_with_option = partial(process, option=args.option)
+    process_with_timeout_option = partial(process_with_timeout, process_with_option)
+
+    with ProcessPoolExecutor(max_workers=os.cpu_count()) as executor:
+        results = list(tqdm(executor.map(process_with_timeout_option, step_dirs), total=len(step_dirs)))
+    
+    successful_processing = sum(results)
+    print(f"Successfully processed {successful_processing}/{len(step_dirs)} files")
 
     # main()
 
-    sample_pc()
+    # sample_pc()
 
     # count_bspline_degree()

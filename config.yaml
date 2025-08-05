@@ -114,7 +114,7 @@ deepcad:
 
 abc:
   # general setting
-  max_face: 30
+  max_face: 70
   max_edge: 20
   edge_classes: 5
   threshold: 0.05

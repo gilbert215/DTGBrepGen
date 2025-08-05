@@ -1,0 +1,26 @@
+2025-08-05 05:47:22,956 INFO    MainThread:15833 [wandb_setup.py:_flush():76] Current SDK version is 0.15.12
+2025-08-05 05:47:22,956 INFO    MainThread:15833 [wandb_setup.py:_flush():76] Configure stats pid to 15833
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_setup.py:_flush():76] Loading settings from /home/gib/.config/wandb/settings
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_setup.py:_flush():76] Loading settings from /home/gib/internship/DTGBrepGen/wandb/settings
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'mode': 'offline'}
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-08-05 05:47:22,957 WARNING MainThread:15833 [wandb_setup.py:_flush():76] Could not find program at -m topology.train_topo
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': None, 'program': '-m topology.train_topo'}
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_init.py:_log_setup():528] Logging user logs to checkpoints/abc/topo_edgeVert/wandb/offline-run-20250805_054722-xvsvhu6o/logs/debug.log
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_init.py:_log_setup():529] Logging internal logs to checkpoints/abc/topo_edgeVert/wandb/offline-run-20250805_054722-xvsvhu6o/logs/debug-internal.log
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_init.py:init():568] calling init triggers
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_init.py:init():575] wandb.init called with sweep_config: {}
+config: {}
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_init.py:init():618] starting backend
+2025-08-05 05:47:22,957 INFO    MainThread:15833 [wandb_init.py:init():622] setting up manager
+2025-08-05 05:47:22,958 INFO    MainThread:15833 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-08-05 05:47:22,961 INFO    MainThread:15833 [wandb_init.py:init():628] backend started and connected
+2025-08-05 05:47:22,966 INFO    MainThread:15833 [wandb_init.py:init():720] updated telemetry
+2025-08-05 05:47:22,985 INFO    MainThread:15833 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2025-08-05 05:47:22,990 INFO    MainThread:15833 [wandb_init.py:init():804] starting run threads in backend
+2025-08-05 05:47:29,460 INFO    MainThread:15833 [wandb_run.py:_console_start():2199] atexit reg
+2025-08-05 05:47:29,460 INFO    MainThread:15833 [wandb_run.py:_redirect():2054] redirect: wrap_raw
+2025-08-05 05:47:29,460 INFO    MainThread:15833 [wandb_run.py:_redirect():2119] Wrapping output streams.
+2025-08-05 05:47:29,461 INFO    MainThread:15833 [wandb_run.py:_redirect():2144] Redirects installed.
+2025-08-05 05:47:29,461 INFO    MainThread:15833 [wandb_init.py:init():845] run started, returning control to user process
+2025-08-05 05:47:30,856 WARNING MsgRouterThr:15833 [router.py:message_loop():77] message_loop has been closed

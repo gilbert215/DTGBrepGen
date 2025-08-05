@@ -56,11 +56,18 @@ class FaceEdgeTrainer:
         for data in self.train_dataloader:
             with torch.cuda.amp.autocast():
                 data = [x.to(self.device) for x in data]
-                if self.use_cf:
-                    fef_adj, _, class_label = data                                 # b*nf*nf, b*nf, b*1
-                else:
-                    fef_adj, _ = data                                              # b*nf*nf, b*nf
+                if self.use_cf and self.use_pc:
+                    fef_adj, _, class_label, point_data = data  # b*nf*nf, b*nf, b*1, pc
+                elif self.use_cf:
+                    fef_adj, _, class_label = data  # b*nf*nf, b*nf, b*1
+                    point_data = None
+                elif self.use_pc:
+                    fef_adj, _, point_data = data  # b*nf*nf, b*nf, pc
                     class_label = None
+                else:
+                    fef_adj, _ = data  # b*nf*nf, b*nf
+                    class_label = None
+                    point_data = None
                 upper_indices = torch.triu_indices(fef_adj.shape[1], fef_adj.shape[1], offset=1)
                 fef_adj_upper = fef_adj[:, upper_indices[0], upper_indices[1]]     # b*seq_len
 
@@ -68,7 +75,7 @@ class FaceEdgeTrainer:
                 self.optimizer.zero_grad()
 
                 # b*seq_len*m, b*latent_dim, b*latent_dim
-                adj, mu, logvar = self.model(fef_adj_upper, class_label)
+                adj, mu, logvar = self.model(fef_adj_upper, class_label, point_data)
 
                 # Loss
                 assert not torch.isnan(adj).any()

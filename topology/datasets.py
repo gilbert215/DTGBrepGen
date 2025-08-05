@@ -384,5 +384,5 @@ class FaceEdgeDataset(torch.utils.data.Dataset):
 
 
 if __name__ == '__main__':
-    # create_topo_datasets(data_type='train', option='deepcad')
-    create_topo_datasets(data_type='test', option='deepcad')
+    create_topo_datasets(data_type='train', option='abc')
+    create_topo_datasets(data_type='test', option='abc')
