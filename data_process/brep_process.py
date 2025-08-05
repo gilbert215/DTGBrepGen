@@ -8,15 +8,15 @@ import json
 import concurrent.futures
 from multiprocessing import Process, Queue
 import numpy as np
-from occwl.uvgrid import ugrid, uvgrid
-from occwl.compound import Compound
-from occwl.solid import Solid
-from occwl.shell import Shell
-from occwl.entity_mapper import EntityMapper
-from OCC.Core.gp import gp_Pnt
-from OCC.Core.TColgp import TColgp_Array2OfPnt, TColgp_Array1OfPnt
-from OCC.Core.GeomAPI import GeomAPI_PointsToBSplineSurface, GeomAPI_PointsToBSpline
-from OCC.Core.GeomAbs import GeomAbs_C2
+# from occwl.uvgrid import ugrid, uvgrid
+# from occwl.compound import Compound
+# from occwl.solid import Solid
+# from occwl.shell import Shell
+# from occwl.entity_mapper import EntityMapper
+# from OCC.Core.gp import gp_Pnt
+# from OCC.Core.TColgp import TColgp_Array2OfPnt, TColgp_Array1OfPnt
+# from OCC.Core.GeomAPI import GeomAPI_PointsToBSplineSurface, GeomAPI_PointsToBSpline
+# from OCC.Core.GeomAbs import GeomAbs_C2
 from utils import load_data_with_prefix
 from functools import partial
 from threading import Thread

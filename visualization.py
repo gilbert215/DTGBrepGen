@@ -4,15 +4,15 @@ import math
 import plotly.offline as pyo
 import plotly.graph_objects as go
 import numpy as np
-from OCC.Display.SimpleGui import init_display
-from OCC.Core.STEPControl import STEPControl_Reader
-from OCC.Core.IFSelect import IFSelect_RetDone
-from OCC.Core.gp import gp_Trsf, gp_Vec
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_Transform
-from OCC.Core.Quantity import Quantity_Color, Quantity_TOC_RGB
-from OCC.Core.AIS import AIS_Shape
-import open3d as o3d
-from utils import load_data_with_prefix
+# from OCC.Display.SimpleGui import init_display
+# from OCC.Core.STEPControl import STEPControl_Reader
+# from OCC.Core.IFSelect import IFSelect_RetDone
+# from OCC.Core.gp import gp_Trsf, gp_Vec
+# from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_Transform
+# from OCC.Core.Quantity import Quantity_Color, Quantity_TOC_RGB
+# from OCC.Core.AIS import AIS_Shape
+# import open3d as o3d
+# from utils import load_data_with_prefix
 
 
 def draw_bfep(bbox=None, faces=None, edges=None, points=None, label=False, bbox_fill=False):

@@ -6,14 +6,14 @@ import os
 from collections import defaultdict
 import shutil
 from tqdm import tqdm
-from OCC.Core.STEPControl import STEPControl_AsIs, STEPControl_Reader, STEPControl_Writer
-from OCC.Core.gp import gp_Trsf, gp_Vec, gp_Pnt
-from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_Transform
-from OCC.Core.Bnd import Bnd_Box
-from OCC.Core.BRepBndLib import brepbndlib_Add
-from OCC.Core.IFSelect import IFSelect_RetDone
-from OCC.Core.BRepMesh import BRepMesh_IncrementalMesh
-from OCC.Core.StlAPI import StlAPI_Writer
+# from OCC.Core.STEPControl import STEPControl_AsIs, STEPControl_Reader, STEPControl_Writer
+# from OCC.Core.gp import gp_Trsf, gp_Vec, gp_Pnt
+# from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_Transform
+# from OCC.Core.Bnd import Bnd_Box
+# from OCC.Core.BRepBndLib import brepbndlib_Add
+# from OCC.Core.IFSelect import IFSelect_RetDone
+# from OCC.Core.BRepMesh import BRepMesh_IncrementalMesh
+# from OCC.Core.StlAPI import StlAPI_Writer
 
 
 def check_step_ok(data, max_face=50, max_edge=30, edge_classes=5):
