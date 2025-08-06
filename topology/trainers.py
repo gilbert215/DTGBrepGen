@@ -221,11 +221,19 @@ class EdgeVertTrainer:
         for data in self.train_dataloader:
             with torch.cuda.amp.autocast():
                 data = [x.to(self.device) for x in data]
-                if self.use_cf:
-                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask, class_label = data    # b*ne*2, b*1, b*ne, b*ns, b*1, b*1
-                else:
-                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask = data                 # b*ne*2, b*1, b*ne, b*ns, b*1
+                if self.use_cf and self.use_pc:
+                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask, class_label, point_data = data
+                elif self.use_cf:
+                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask, class_label = data
+                    point_data = None
+                elif self.use_pc:
+                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask, point_data = data
                     class_label = None
+                else:
+                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask = data
+                    class_label = None
+                    point_data = None
+
                 ne = edge_mask.max()
                 ns = seq_mask.max()
                 edgeFace_adj = edgeFace_adj[:, :ne, :]
@@ -235,7 +243,7 @@ class EdgeVertTrainer:
                 edge_mask = make_mask(edge_mask, ne)      # b*ne
                 seq_mask = make_mask(seq_mask, ns)        # b*ns
 
-                logits = self.model(edgeFace_adj, edge_mask, topo_seq, seq_mask, share_id, class_label)       # b*ns*(ne+2)
+                logits = self.model(edgeFace_adj, edge_mask, topo_seq, seq_mask, share_id, class_label, point_data)       # b*ns*(ne+2)
 
                 # Zero gradient
                 self.optimizer.zero_grad()
@@ -273,11 +281,19 @@ class EdgeVertTrainer:
         for data in self.val_dataloader:
             with torch.no_grad():
                 data = [x.to(self.device) for x in data]
-                if self.use_cf:
-                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask, class_label = data    # b*ne*2, b*1, b*ne, b*ns, b*1, b*1
-                else:
-                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask = data                 # b*ne*2, b*1, b*ne, b*ns, b*1
+                if self.use_cf and self.use_pc:
+                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask, class_label, point_data = data
+                elif self.use_cf:
+                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask, class_label = data
+                    point_data = None
+                elif self.use_pc:
+                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask, point_data = data
                     class_label = None
+                else:
+                    edgeFace_adj, edge_mask, share_id, topo_seq, seq_mask = data
+                    class_label = None
+                    point_data = None
+
                 ne = edge_mask.max()
                 ns = seq_mask.max()
                 edgeFace_adj = edgeFace_adj[:, :ne, :]
@@ -287,7 +303,7 @@ class EdgeVertTrainer:
                 edge_mask = make_mask(edge_mask, ne)      # b*ne
                 seq_mask = make_mask(seq_mask, ns)        # b*ns
 
-                logits = self.model(edgeFace_adj, edge_mask, topo_seq, seq_mask, share_id, class_label)       # b*ns*(ne+2)
+                logits = self.model(edgeFace_adj, edge_mask, topo_seq, seq_mask, share_id, class_label, point_data)       # b*ns*(ne+2)
 
                 # Loss
                 loss = self.train_loss(logits, topo_seq, seq_mask)
