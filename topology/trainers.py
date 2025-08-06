@@ -27,11 +27,11 @@ class FaceEdgeTrainer:
         self.train_dataloader = torch.utils.data.DataLoader(train_dataset,
                                                             shuffle=True,
                                                             batch_size=args.batch_size,
-                                                            num_workers=16)
+                                                            num_workers=4)
         self.val_dataloader = torch.utils.data.DataLoader(val_dataset,
                                                           shuffle=False,
                                                           batch_size=args.batch_size,
-                                                          num_workers=16)
+                                                          num_workers=4)
 
         # Initialize optimizer
         self.network_params = list(self.model.parameters())
@@ -177,11 +177,11 @@ class EdgeVertTrainer:
         self.train_dataloader = torch.utils.data.DataLoader(train_dataset,
                                                             shuffle=True,
                                                             batch_size=args.batch_size,
-                                                            num_workers=16)
+                                                            num_workers=4)
         self.val_dataloader = torch.utils.data.DataLoader(val_dataset,
                                                           shuffle=False,
                                                           batch_size=args.batch_size,
-                                                          num_workers=16)
+                                                          num_workers=4)
 
         # Initialize optimizer
         self.network_params = list(self.model.parameters())
