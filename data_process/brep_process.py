@@ -3,7 +3,7 @@ import pickle
 import argparse
 from tqdm import tqdm
 from multiprocessing.pool import Pool
-from occwl.io import load_step
+# from occwl.io import load_step
 import json
 import concurrent.futures
 from multiprocessing import Process, Queue

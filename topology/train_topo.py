@@ -54,9 +54,9 @@ def main():
     # Main training loop
     print('Start training...')
 
-    # Initialize wandb
-    os.environ["WANDB_MODE"] = "offline"
-    wandb.init(project='BrepGDM', dir=args.save_dir, name=args.env)
+    # # Initialize wandb
+    # os.environ["WANDB_MODE"] = "offline"
+    # wandb.init(project='BrepGDM', dir=args.save_dir, name=args.env)
 
     # Main training loop
     for _ in range(args.train_epochs):
